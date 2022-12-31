@@ -188,7 +188,7 @@ const Cart = () => {
       }
     }
    if(stripeToken?.id && cartItems.total>=1)makePayment();
-  },[stripeToken,cartItems.total,history,cartItems,currentUser._id])
+  },[stripeToken,cartItems.total,history,cartItems,currentUser?._id])
   return (
     <Container>
       <Navbar />
