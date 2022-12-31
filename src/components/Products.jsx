@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { publicRequest } from '../requestMethods'
 import Product from './Product'
 
 const Container=styled.div`
@@ -16,7 +17,7 @@ const Products = ({cat,filters,sort} ) => {
     const getProducts=async()=>{
        try {
         console.log(cat)
-        const res=await axios.get(cat?`http://localhost:3001/api/products?category=${cat}`:`http://localhost:3001/api/products`);
+        const res=await publicRequest.get(cat?`/products?category=${cat}`:`/products`);
         console.log(res);
         setProducts(res.data); 
        } catch (error) {
